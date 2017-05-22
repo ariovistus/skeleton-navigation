@@ -3,6 +3,7 @@ import '../static/styles.css';
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'babel-polyfill';
+import { PLATFORM } from "aurelia-pal";
 import * as Bluebird from 'bluebird';
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
@@ -10,6 +11,7 @@ Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export async function configure(aurelia) {
   aurelia.use
+    .plugin(PLATFORM.moduleName("aurelia-validation"))
     .standardConfiguration()
     .developmentLogging();
 
